@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/card.css" />
 
+    <script defer src="./js/cached-response.js"></script>
+    <script defer src="./js/card.js"></script>
   </head>
   <body>
     <h1 class="app__title">Pokémon Card Generator</h1>
@@ -31,7 +33,7 @@
             <div class="card__name">Pikachu</div>
             <div class="card__hp-type-container">
               <div class="card__hp">40 HP</div>
-              <img class="card__type" src="./img/electric-classic.png" />
+              <img class="card__type" src="./img/lightning-classic.png" />
             </div>
           </div>
           <div class="card__image"></div>
@@ -44,7 +46,7 @@
                 <div class="card__attack-cost-container">
                   <img
                     class="card__attack-cost"
-                    src="./img/normal-classic.png"
+                    src="./img/colorless-classic.png"
                   />
                 </div>
                 <div class="card__attack-description">
@@ -59,11 +61,11 @@
                 <div class="card__attack-cost-container">
                   <img
                     class="card__attack-cost"
-                    src="./img/electric-classic.png"
+                    src="./img/lightning-classic.png"
                   />
                   <img
                     class="card__attack-cost"
-                    src="./img/normal-classic.png"
+                    src="./img/colorless-classic.png"
                   />
                 </div>
                 <div class="card__attack-description">
@@ -82,25 +84,36 @@
           <div class="card__strengths">
             <div class="card__strength-col">
               <div>weakness</div>
-              <img class="card__attack-cost" src="./img/fighting-classic.png" />
+              <div class="card__strength-cost-row">
+                <img class="card__attack-cost" src="./img/fighting-classic.png" />
+              </div>
             </div>
             <div class="card__strength-col">
               <div>resistance</div>
+              <div class="card__strength-cost-row">
               <!-- <img class="card__attack-cost" src="./img/water-classic.png" /> -->
+              </div>
             </div>
             <div class="card__strength-col">
               <div>retreat cost</div>
-              <img class="card__attack-cost" src="./img/normal-classic.png" />
+              <div class="card__strength-cost-row">
+              <img
+                class="card__attack-cost"
+                src="./img/colorless-classic.png"
+              />
+              </div>
             </div>
           </div>
           <div class="card__extra-information">
-            When several of these Pokémon gather, their electricity can cause lightning storms.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LV. 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#25
+            When several of these Pokémon gather, their electricity can cause
+            lightning storms.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LV.
+            12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#25
           </div>
           <div class="card__rarity">
             <img src="./img/common.png" />
           </div>
         </div>
       </div>
-    </div> 
+    </div>
   </body>
 </html>
