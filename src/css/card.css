@@ -11,6 +11,12 @@
   padding-top: 1px;
 }
 
+.card:hover {
+  transform: scale(1.5);
+  transition-duration: 300ms;
+  z-index: 10;
+}
+
 .card__inner-card {
   --margin: 2mm;
   margin: var(--margin);
@@ -56,15 +62,22 @@
 
 .card__image {
   --border: 3px;
-  background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2F1ZNo84L5nh7O1KXqOsGJY1eiyCs%3D%2F0x0%3A1280x720%2F1600x900%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_image%2Fimage%2F53748331%2Fpokemon_yellow.0.0.jpg&f=1&nofb=1");
-  background-size: cover;
-  background-color: #f0da35;
   height: calc(139px - var(--border) * 2);
   width: calc(196px - var(--border) * 2);
   margin: 0 13px;
-  border: 3px solid #f0da35;
+  border: var(--border) solid #f0da35;
 }
-
+/* 
+.card__image::before {
+  content: "";
+  height: calc(139px - var(--border) * 2);
+  width: calc(196px - var(--border) * 2);
+  position: absolute;
+  background-image: url("https://images.pokemontcg.io/base1/10.png");
+  background-position-x: 215px;
+  background-position-y: -37px;
+}
+ */
 .card__meta {
   height: 10px;
   background-color: #f0da35;
@@ -108,6 +121,8 @@
   display: flex;
   flex-wrap: wrap;
   min-width: 30px;
+  max-width: 30px;
+  justify-content: center
 }
 
 .card__attack-cost {
@@ -118,7 +133,7 @@
 
 .card__attack-description {
   font-size: 8px;
-  line-height: 8px;
+  line-height: 7px;
   max-width: 80%;
 }
 

@@ -8,5 +8,7 @@
 
 .cards-container {
     display: flex;
-    gap: 5px;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-content: center;
 }
