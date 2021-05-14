@@ -1,0 +1,12 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.app__title {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.cards-container {
+    display: flex;
+    gap: 5px;
+}
