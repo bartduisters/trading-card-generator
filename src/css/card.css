@@ -12,9 +12,10 @@
 }
 
 .card:hover {
-  transform: scale(1.5);
+  filter: drop-shadow(0 0 0.75rem rgb(20, 20, 20));
+  transform: scale(1.2);
   transition-duration: 300ms;
-  z-index: 10;
+  z-index: 1;
 }
 
 .card__inner-card {
@@ -67,17 +68,7 @@
   margin: 0 13px;
   border: var(--border) solid #f0da35;
 }
-/* 
-.card__image::before {
-  content: "";
-  height: calc(139px - var(--border) * 2);
-  width: calc(196px - var(--border) * 2);
-  position: absolute;
-  background-image: url("https://images.pokemontcg.io/base1/10.png");
-  background-position-x: 215px;
-  background-position-y: -37px;
-}
- */
+
 .card__meta {
   height: 10px;
   background-color: #f0da35;
@@ -134,16 +125,19 @@
 .card__attack-description {
   font-size: 8px;
   line-height: 7px;
-  max-width: 80%;
 }
 
 .card__attack-description-name {
   font-weight: bold;
-  font-size: 10px;
+  font-size: 9px;
+}
+
+.card__attack-description-ability {
+  color: red;
 }
 
 .card__attack-description-details {
-  font-size: 8px;
+  font-size: 7px;
 }
 
 .card__attack-damage {

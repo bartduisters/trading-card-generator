@@ -9,47 +9,81 @@ allPokemon.forEach((pokemon) => {
   const resistances = pokemon.resistances ? pokemon.resistances : [];
   const bottomText = `${pokemon.flavorText}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LV. ${pokemon.level}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#${pokemon.number}`;
 
+  let attacks = [];
+  if (pokemon.abilities) {
+    attacks = [...pokemon.abilities];
+  }
+
+  if (pokemon.attacks) {
+    attacks = [...attacks, ...pokemon.attacks];
+  }
+
+  let rarity = pokemon.rarity.toLowerCase();
+  if (rarity === "rare holo") {
+    rarity = "rare";
+  }
+
   cards.appendChild(
     createCard(
       `${pokemon.subtypes[0]} ${pokemon.supertype}`,
       pokemon.name,
       `${pokemon.hp} HP`,
       pokemon.types[0].toLowerCase(),
-      pokemon.attacks,
+      attacks,
       weaknesses,
       resistances,
       retreatCost,
       bottomText,
-      pokemon.rarity.toLowerCase(),
+      rarity,
       pokemon.images.small,
       pokemon.number
     )
   );
 });
 
-function createAttack(attack) {
+function createAttack(attack, type) {
   let cost = "";
-  attack.cost.forEach(
-    (c) =>
-      (cost += `<img class="card__attack-cost" src="./img/${c.toLowerCase()}-classic.png" />`)
-  );
+  if (attack.cost) {
+    cost += `<div class="card__attack-cost-container">`;
+    attack.cost.forEach(
+      (c) =>
+        (cost += `<img class="card__attack-cost" src="./img/${c.toLowerCase()}-classic.png" />`)
+    );
+    cost += `</div>`;
+  }
+
+  let damage = "";
+  if (attack.damage) {
+    damage += `<div class="card__attack-damage">${attack.damage}</div>`;
+  }
+
+  let attackName = "";
+  let abilityColor = "#dc051e";
+  switch (type) {
+    case "psychic":
+      abilityColor = "#3c328a";
+      break;
+  }
+  attackName = `
+    <span ${
+      attack.type ? "style='color: " + `${abilityColor}` + "'" : ""
+    } class="card__attack-description-name ${
+    attack.type ? "card__attack-description-ability" : ""
+  }">${attack.name}</span>
+  `;
   return `
     <div class="card__attack-row-container">
         <div class="card__attack-row">
-            <div class="card__attack-cost-container">
-                ${cost}
-            </div>
+            ${cost}
             <div class="card__attack-description">
-                <span class="card__attack-description-name">${
-                  attack.name
-                }</span>
+                ${attackName}
                 ${
                   attack.text
                     ? `<span class="card__attack-description-details"> ${attack.text} </span>`
                     : ""
                 }
             </div>
-            <div class="card__attack-damage">${attack.damage}</div>
+            ${damage}
         </div>
         <div class="card__attack-stripe"></div>
     </div>
@@ -60,25 +94,25 @@ function getBackgroundColor(type) {
   backgroundColor = "#ddd";
   switch (type) {
     case "water":
-      backgroundColor = "#5454ff";
+      backgroundColor = "#16a9ea";
       break;
     case "lightning":
-      backgroundColor = "#ffff56";
+      backgroundColor = "#fcf083";
       break;
     case "grass":
-      backgroundColor = "#7aea7a";
+      backgroundColor = "#6bb07c";
       break;
     case "fire":
-      backgroundColor = "#ff5c5c";
+      backgroundColor = "#e7967d";
       break;
     case "fighting":
-      backgroundColor = "#f04b25";
+      backgroundColor = "#c19d86";
       break;
     case "psychic":
-      backgroundColor = "#b339b3";
+      backgroundColor = "#9c77bc";
       break;
     case "colorless":
-      backgroundColor = "#ddd";
+      backgroundColor = "#bccfdf";
       break;
   }
   return backgroundColor;
@@ -102,7 +136,7 @@ function createCard(
   card.classList = ["card"];
 
   let attackElements = "";
-  attacks.forEach((attack) => (attackElements += createAttack(attack)));
+  attacks.forEach((attack) => (attackElements += createAttack(attack, type)));
 
   let weaknessEl = "";
   weaknesses.forEach(
