@@ -19,88 +19,14 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/card.css" />
 
+    <script defer src="./js/cached-response.js"></script>
+    <script defer src="./js/card.js"></script>
   </head>
   <body>
     <h1 class="app__title">Pokémon Card Generator</h1>
 
+    <button onclick='addCard()'>Create Card</button>
     <div class="cards-container">
-      <div class="card">
-        <div class="card__inner-card">
-          <div class="card__base-information">Basic Pokémon</div>
-          <div class="card__information">
-            <div class="card__name">Pikachu</div>
-            <div class="card__hp-type-container">
-              <div class="card__hp">40 HP</div>
-              <img class="card__type" src="./img/electric-classic.png" />
-            </div>
-          </div>
-          <div class="card__image"></div>
-          <div class="card__meta">
-            Mouse Pokémon. Length: 1' 4'', Weight: 13 lbs.
-          </div>
-          <div class="card__attacks">
-            <div class="card__attack-row-container">
-              <div class="card__attack-row">
-                <div class="card__attack-cost-container">
-                  <img
-                    class="card__attack-cost"
-                    src="./img/normal-classic.png"
-                  />
-                </div>
-                <div class="card__attack-description">
-                  <span class="card__attack-description-name">Gnaw</span>
-                </div>
-                <div class="card__attack-damage">10</div>
-              </div>
-              <div class="card__attack-stripe"></div>
-            </div>
-            <div class="card__attack-row-container">
-              <div class="card__attack-row">
-                <div class="card__attack-cost-container">
-                  <img
-                    class="card__attack-cost"
-                    src="./img/electric-classic.png"
-                  />
-                  <img
-                    class="card__attack-cost"
-                    src="./img/normal-classic.png"
-                  />
-                </div>
-                <div class="card__attack-description">
-                  <span class="card__attack-description-name"
-                    >Thunder Jolt</span
-                  >
-                  <span class="card__attack-description-details">
-                    Flip a coin. If tails, Pikachu does 10 damage to itself.
-                  </span>
-                </div>
-                <div class="card__attack-damage">30</div>
-              </div>
-              <div class="card__attack-stripe"></div>
-            </div>
-          </div>
-          <div class="card__strengths">
-            <div class="card__strength-col">
-              <div>weakness</div>
-              <img class="card__attack-cost" src="./img/fighting-classic.png" />
-            </div>
-            <div class="card__strength-col">
-              <div>resistance</div>
-              <!-- <img class="card__attack-cost" src="./img/water-classic.png" /> -->
-            </div>
-            <div class="card__strength-col">
-              <div>retreat cost</div>
-              <img class="card__attack-cost" src="./img/normal-classic.png" />
-            </div>
-          </div>
-          <div class="card__extra-information">
-            When several of these Pokémon gather, their electricity can cause lightning storms.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LV. 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#25
-          </div>
-          <div class="card__rarity">
-            <img src="./img/common.png" />
-          </div>
-        </div>
-      </div>
-    </div> 
+    </div>
   </body>
 </html>

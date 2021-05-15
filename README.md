@@ -4,7 +4,8 @@
 
 [x] Generate basic project
 [x] Style one card - hard coded data
-[] Add data based off of an object from https://pokemontcg.io/
+[x] Add data based off of an object from https://pokemontcg.io/
+[] Add abilities to attacks section
 [] Add inputs to change the content of the card
 [] Render html to image
 
