@@ -13,3 +13,18 @@
     align-content: center;
     margin: 0 50px;
 }
+
+.strengths {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+input[type=text], input[type=number], select, button {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }

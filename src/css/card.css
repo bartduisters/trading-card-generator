@@ -13,7 +13,7 @@
 
 .card:hover {
   filter: drop-shadow(0 0 0.75rem rgb(20, 20, 20));
-  transform: scale(1.2);
+  transform: scale(1.15);
   transition-duration: 300ms;
   z-index: 1;
 }
@@ -30,6 +30,7 @@
   font-size: 6px;
   margin-top: 11px;
   margin-left: 13px;
+  height: 9px;
 }
 
 .card__information {
@@ -150,6 +151,7 @@
   justify-content: space-between;
   margin: 0 13px 2px 13px;
   font-size: 6px;
+  height: 20px;
 }
 
 .card__strength-col {

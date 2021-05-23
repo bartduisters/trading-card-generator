@@ -3,6 +3,7 @@ const allPokemon = jsonResponse.data.filter((p) => p.supertype === "Pokémon");
 
 const cards = document.querySelector(".cards-container");
 
+/*
 allPokemon.forEach((pokemon) => {
   const weaknesses = pokemon.weaknesses ? pokemon.weaknesses : [];
   const retreatCost = pokemon.retreatCost ? pokemon.retreatCost : [];
@@ -36,10 +37,13 @@ allPokemon.forEach((pokemon) => {
       bottomText,
       rarity,
       pokemon.images.small,
-      pokemon.number
+      "THIS IS FAKE",
+      pokemon.number,
+      {x: 215, y: -40}
     )
   );
 });
+*/
 
 function createAttack(attack, type) {
   let cost = "";
@@ -130,11 +134,12 @@ function createCard(
   bottomText,
   rarity,
   bgImage,
-  number
+  meta,
+  number,
+  customPosition = { x: 0, y: 0 }
 ) {
   const card = document.createElement("div");
-  card.classList = ["card"];
-
+  card.classList = ["trading-card"];
   let attackElements = "";
   attacks.forEach((attack) => (attackElements += createAttack(attack, type)));
 
@@ -169,8 +174,8 @@ function createCard(
             </div>
             <div class="card__image"></div>
             <div class="card__meta">
-                THIS IS FAKE
-                <!-- Mouse Pokémon. Length: 1' 4'', Weight: 13 lbs. -->
+              ${meta}
+              <!-- Mouse Pokémon. Length: 1' 4'', Weight: 13 lbs. -->
             </div>
             <div class="card__attacks">
                 ${attackElements}
@@ -218,8 +223,8 @@ function createCard(
             width: calc(196px - var(--border) * 2);
             position: absolute;
             background-image: url("${bgImage}");
-            background-position-x: 215px;
-            background-position-y: -37px;
+            background-position-x: ${customPosition.x}px;
+            background-position-y: ${customPosition.y}px;
         }`;
   document.querySelector("head").appendChild(style);
 

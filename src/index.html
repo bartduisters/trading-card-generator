@@ -19,14 +19,170 @@
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/card.css" />
 
+    <script defer src="./js/helper.js"></script>
     <script defer src="./js/cached-response.js"></script>
     <script defer src="./js/card.js"></script>
+    <script defer src="./js/add-card.js"></script>
+
+    <style>
+      .costs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    </style>
   </head>
   <body>
     <h1 class="app__title">Pokémon Card Generator</h1>
 
-    <button onclick='addCard()'>Create Card</button>
-    <div class="cards-container">
-    </div>
+    <form action="">
+      <div>
+        <input id="topText" type="text" placeholder="top text" />
+      </div>
+      <div>
+        <input id="name" type="text" placeholder="name" />
+        <input id="hp" type="text" placeholder="e.g. 120 HP" />
+        Type:
+        <select name="type" id="type">
+          <option value="fire">fire</option>
+          <option value="water">water</option>
+          <option value="lightning">lightning</option>
+          <option value="grass">grass</option>
+          <option value="fire">fire</option>
+          <option value="fighting">fighting</option>
+          <option value="psychic">psychic</option>
+          <option value="colorless">colorless</option>
+        </select>
+      </div>
+      <div>
+        <input id="image" type="text" placeholder="URL of an image (200x140)" />
+      </div>
+      <div>
+        <input
+          type="text"
+          name="meta"
+          id="meta"
+          placeholder="meta information"
+        />
+      </div>
+      <div class="attacks">
+        <div class="attack-container">
+          <div class="attack-number">Attack 1</div>
+          <div class="attack">
+            <label for="attack-ability">
+              <input type="checkbox" name="attack-ability" class="attack-ability">
+              ability
+            </label>
+            <div class="costs">
+              <select name="cost" class="cost">
+                <option value="">no cost</option>
+                <option value="fire">fire</option>
+                <option value="water">water</option>
+                <option value="water">water</option>
+                <option value="lightning">lightning</option>
+                <option value="grass">grass</option>
+                <option value="fire">fire</option>
+                <option value="fighting">fighting</option>
+                <option value="psychic">psychic</option>
+                <option value="colorless">colorless</option>
+              </select>
+              <button type="button" onclick="addCost(this, 'cost')">+</button>
+            </div>
+            <input class="attack-name" type="text" placeholder="attack name" />
+            <input
+              class="attack-description"
+              type="text"
+              placeholder="attack description"
+            />
+            <input class="attack-damage" type="number" />
+          </div>
+        </div>
+        <button type="button" onclick="addAttack(this)">+</button>
+      </div>
+
+      <div class="strengths">
+        <div class="weakness">
+          <div>Weakness</div>
+          <div class="weakness-costs">
+            <select name="weakness-cost" class="weakness-cost">
+              <option value="">no cost</option>
+              <option value="fire">fire</option>
+              <option value="water">water</option>
+              <option value="water">water</option>
+              <option value="lightning">lightning</option>
+              <option value="grass">grass</option>
+              <option value="fire">fire</option>
+              <option value="fighting">fighting</option>
+              <option value="psychic">psychic</option>
+              <option value="colorless">colorless</option>
+            </select>
+            <button type="button" onclick="addCost(this, 'weakness-cost')">
+              +
+            </button>
+          </div>
+        </div>
+        <div class="resistance">
+          <div>Resistance</div>
+          <div class="resistance-costs">
+            <select name="resistance-cost" class="resistance-cost">
+              <option value="">no cost</option>
+              <option value="fire">fire</option>
+              <option value="water">water</option>
+              <option value="water">water</option>
+              <option value="lightning">lightning</option>
+              <option value="grass">grass</option>
+              <option value="fire">fire</option>
+              <option value="fighting">fighting</option>
+              <option value="psychic">psychic</option>
+              <option value="colorless">colorless</option>
+            </select>
+            <button type="button" onclick="addCost(this, 'resistance-cost')">
+              +
+            </button>
+          </div>
+        </div>
+
+        <div class="retreat">
+          <div>Retreat cost</div>
+          <div class="retreat-costs">
+            <select name="retreat-cost" class="retreat-cost">
+              <option value="">no cost</option>
+              <option value="fire">fire</option>
+              <option value="water">water</option>
+              <option value="water">water</option>
+              <option value="lightning">lightning</option>
+              <option value="grass">grass</option>
+              <option value="fire">fire</option>
+              <option value="fighting">fighting</option>
+              <option value="psychic">psychic</option>
+              <option value="colorless">colorless</option>
+            </select>
+            <button type="button" onclick="addCost(this, 'retreat-cost')">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <input
+        type="text"
+        name="extra-information"
+        id="extra-information"
+        placeholder="extra information"
+      />
+
+      <div>
+        <select name="rarity" id="rarity">
+          <option value="common">common</option>
+          <option value="uncommon">uncommon</option>
+          <option value="rare">rare</option>
+          <option value="super-rare">super rare</option>
+        </select>
+      </div>
+    </form>
+
+    <button type="button" onclick="addCard()">Create Card</button>
+
+    <div class="cards-container"></div>
   </body>
 </html>
