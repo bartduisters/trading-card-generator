@@ -7,6 +7,7 @@ A working example can be found [here](https://bartduisters.com/trading-card-gene
 ## Run locally
 
 - Clone the repo
+- `cd` into the repo
 - Run `npm install`
 - Run `npm run dev`
 - The browser will automatically open
