@@ -1,7 +1,7 @@
 {
-  "name": "pokemon-card-generator",
+  "name": "trading-card-generator",
   "version": "1.0.0",
-  "description": "A tool that generates poPokémon cards!",
+  "description": "A tool that generates trading cards!",
   "main": "index.js",
   "scripts": {
     "dev": "live-server src",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bartduisters/pokemon-card-generator.git"
+    "url": "git+https://github.com/bartduisters/trading-card-generator.git"
   },
   "author": "Bart Duisters",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bartduisters/pokemon-card-generator/issues"
+    "url": "https://github.com/bartduisters/trading-card-generator/issues"
   },
-  "homepage": "https://github.com/bartduisters/pokemon-card-generator#readme",
+  "homepage": "https://github.com/bartduisters/trading-card-generator#readme",
   "devDependencies": {
     "live-server": "^1.2.1"
   }

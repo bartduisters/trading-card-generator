@@ -2,8 +2,8 @@ const jsonResponse = JSON.parse(cachedResponse);
 const allPokemon = jsonResponse.data.filter((p) => p.supertype === "Pokémon");
 
 const cards = document.querySelector(".cards-container");
+const exampleCards = document.querySelector(".cards-example-container");
 
-/*
 allPokemon.forEach((pokemon) => {
   const weaknesses = pokemon.weaknesses ? pokemon.weaknesses : [];
   const retreatCost = pokemon.retreatCost ? pokemon.retreatCost : [];
@@ -24,7 +24,7 @@ allPokemon.forEach((pokemon) => {
     rarity = "rare";
   }
 
-  cards.appendChild(
+  exampleCards.appendChild(
     createCard(
       `${pokemon.subtypes[0]} ${pokemon.supertype}`,
       pokemon.name,
@@ -43,7 +43,6 @@ allPokemon.forEach((pokemon) => {
     )
   );
 });
-*/
 
 function createAttack(attack, type) {
   let cost = "";

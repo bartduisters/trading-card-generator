@@ -14,6 +14,20 @@
     margin: 0 50px;
 }
 
+.cards-example-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-content: center;
+    margin: 0 50px;
+}
+
+#cards-example-title {
+    margin-left: 50px;
+    margin-top: 50px;
+    font-family: 'Press Start 2P', cursive;
+}
+
 .strengths {
     display: flex;
     flex-wrap: wrap;
