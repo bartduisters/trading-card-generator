@@ -39,7 +39,7 @@ allPokemon.forEach((pokemon) => {
       pokemon.images.small,
       "THIS IS FAKE",
       pokemon.number,
-      {x: 215, y: -40}
+      { x: 215, y: -40 }
     )
   );
 });
@@ -71,8 +71,8 @@ function createAttack(attack, type) {
     <span ${
       attack.type ? "style='color: " + `${abilityColor}` + "'" : ""
     } class="card__attack-description-name ${
-    attack.type ? "card__attack-description-ability" : ""
-  }">${attack.name}</span>
+      attack.type ? "card__attack-description-ability" : ""
+    }">${attack.name}</span>
   `;
   return `
     <div class="card__attack-row-container">
@@ -227,5 +227,44 @@ function createCard(
         }`;
   document.querySelector("head").appendChild(style);
 
+  const glareOverlay = document.createElement("div");
+  glareOverlay.classList.add("card__glare");
+  innerCard.appendChild(glareOverlay);
+
+  const glare = card.querySelector(".card__glare");
+  addTiltListener(card, glare);
   return card;
+}
+
+function addTiltListener(card, glare) {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateY = (x / rect.width - 0.5) * 30;
+    const rotateX = (y / rect.height - 0.5) * -30;
+    card.style.transform = `
+      perspective(600px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      scale3d(1.05, 1.05, 1.05)
+    `;
+
+    // Compute glare gradient
+    const glareX = (x / rect.width) * 100;
+    const glareY = (y / rect.height) * 100;
+    glare.style.background = `
+      radial-gradient(circle at ${glareX}% ${glareY}%,
+        rgba(255,255,255,0.5),
+        rgba(255,255,255,0) 60%)
+    `;
+    glare.style.opacity = "1";
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform =
+      "perspective(600px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
+    glare.style.opacity = "0";
+  });
 }
